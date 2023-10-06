@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#Bash script that displays numbers from 1 to 20 and.
+iter=0
+h=0
+while [ $h -le 12 ]
+do
+	echo "Hour: $h"
+	m=1
+	while [ $m -lt 60 ]
+	do
+		echo "$m"
+		((m++))
+		((iter++))
+
+		if [ $iter -ge 68 ]
+		then
+			exit 0
+		fi
+	done
+	((h++))
+done
