@@ -1,0 +1,13 @@
+https://imgur.com/UUat36G
+
+		Internet
+                   |
+             Load Balancer (HAproxy)
+            /      |      \
+   Web Server 1  Web Server 2
+         |         |
+  Application   Application
+     Server 1     Server 2
+         |         |
+      MySQL     MySQL
+    Database   Database
