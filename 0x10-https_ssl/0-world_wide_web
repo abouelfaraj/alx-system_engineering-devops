@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Script that retrieves and displays DNS information about subdomains.
+
+# Function to obtain DNS information for a given subdomain and domain.
+# Args:
+#   $1: domain - the main domain to query
+#   $2: subdomain (optional) - specific subdomain to query, default to 'www' if not provided
+func () {
+    if [ -n "$2" ]
+    then
+	dig "$2.$1" | grep -A1 'ANSWER SECTION:' | paste - - | awk -v sd="$2" '{print "The subdomain " sd " is a " $7 " record and points to " $8}'
+    else
+	dig "www.$1" | grep -A1 'ANSWER SECTION:' | paste - - | awk '{print "The subdomain www is a " $7 " record and points to " $8}'
+	dig "lb-01.$1" | grep -A1 'ANSWER SECTION:' | paste - - | awk '{print "The subdomain lb-01 is a " $7 " record and points to " $8}'
+	dig "web-01.$1" | grep -A1 'ANSWER SECTION:' | paste - - | awk '{print "The subdomain web-01 is a " $7 " record and points to " $8}'
+	dig "web-02.$1" | grep -A1 'ANSWER SECTION:' | paste - - | awk '{print "The subdomain web-02 is a " $7 " record and points to " $8}'
+    fi
+}
+
+func "$1" "$2"
