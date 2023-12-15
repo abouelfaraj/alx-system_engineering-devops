@@ -1,0 +1,30 @@
+Navigating the Web
+A Journey from URL to www.google.com
+
+When typing https://www.google.com into the browser and hit Enter, a complex series of events is set in motion. In this blog post, we'll trying to understand what happens behind the scenes.
+
+Step 1: DNS Request
+The journey begins with a DNS (Domain Name System) request. After passing the request throughout the browser, behind the server translate the human-readable domain name, "www.google.com," into an IP address. This involves querying DNS servers to find the IP associated with the domain.
+
+Step 2: TCP/IP
+Once the IP address is retrieved from DNS, a TCP/IP (Transmission Control Protocol/Internet Protocol) connection is established. This is the foundation of communication on the internet, ensuring reliable data transmission between your browser and the server hosting Google's website.
+
+Step 3: Firewall
+As data travels between your computer and Google's servers, it may pass through firewalls. Firewalls act as a barrier, monitoring and controlling incoming and outgoing network traffic based on predetermined security rules.
+
+Step 4: HTTPS/SSL
+Security is paramount. To protect the data being exchanged, HTTPS (Hypertext Transfer Protocol Secure) is employed. SSL (Secure Sockets Layer) or its successor, TLS (Transport Layer Security), encrypts the data, ensuring a secure connection. This encryption prevents unauthorized access and data tampering.
+
+Step 5: Load-Balancer
+To handle the massive number of requests, large websites like Google employ load balancers. These distribute incoming traffic across multiple servers, optimizing resource usage and ensuring no single server is overwhelmed.
+
+Step 6: Web Server:
+The load balancer directs the request to an available web server. The web server hosts and serves the static content of the website, handling requests for HTML, CSS, and other files.
+Step 7: Application Server
+For dynamic content or interactive elements, an application server comes into play. This server executes server-side code, processing requests, interacting with databases, and generating dynamic content to be sent back to the user's browser.
+
+Step 8: Database
+If the web page requires data from a database, the application server communicates with it. This could involve querying, updating, or retrieving information from the database to provide a personalized and dynamic user experience.
+
+This is just a brief overview; each step in this process involves even more complexities. Delving deeper into each component can provide a comprehensive understanding of web development and infrastructure.
+
