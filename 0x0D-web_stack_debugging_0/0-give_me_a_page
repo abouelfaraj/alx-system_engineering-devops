@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # get Apache to run on the container
 service appache2 start
+curl 0:80
