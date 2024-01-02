@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Script that sets the port 80
-cp -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-service nginx stop
+# Script that sets the por
+mv /etc/nginx/sites-available/default{,.bak}
+service nginx start
