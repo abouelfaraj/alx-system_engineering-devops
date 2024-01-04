@@ -18,17 +18,17 @@ if __name__ == "__main__":
     list_to_csv = []
     for task in tasks:
         list_to_csv.append([
-            json_res.get("id"), 
-            json_res.get("username"), 
-            task.get("completed"), 
+            json_res.get("id"),
+            json_res.get("username"),
+            task.get("completed"),
             task.get("title")
             ])
     csv_filename = "{}.csv".format(json_res.get("id"))
     with open(csv_filename, mode='w') as employee:
         employee_w = csv.writer(
-                employee,delimiter=',',
+                employee,
+                delimiter=',',
                 quotechar='"',
                 quoting=csv.QUOTE_ALL)
         for task in list_to_csv:
             employee_w.writerow(task)
-
