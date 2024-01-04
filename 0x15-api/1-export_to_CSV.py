@@ -12,7 +12,7 @@ if __name__ == "__main__":
     res = requests.get(user)
     json_res = res.json()
 
-    todos = '{}todos?user={}'.format(url, sys.argv[1])
+    todos = '{}todos?userId={}'.format(url, sys.argv[1])
     res = requests.get(todos)
     tasks = res.json()
     list_to_csv = []
