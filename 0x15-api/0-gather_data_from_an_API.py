@@ -13,8 +13,8 @@ if __name__ == "__main__":
     name = json_res.get('name')
 
     todos = '{}todos?userId={}'.format(url, userid)
-    res = requests.get(todos)
-    tasks = res.json()
+    res_todos = requests.get(todos)
+    tasks = res_todos.json()
     listtask = []
     for task in tasks:
         if task.get('completed') is True:
