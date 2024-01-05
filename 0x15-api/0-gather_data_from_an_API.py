@@ -10,7 +10,7 @@ if __name__ == "__main__":
     user = '{}users/{}'.format(url, userid)
     res = requests.get(user)
     json_res = res.json()
-    name = json_res.get('name')
+    name = str(json_res.get('name'))
 
     todos = '{}todos?userId={}'.format(url, userid)
     res_todos = requests.get(todos)
