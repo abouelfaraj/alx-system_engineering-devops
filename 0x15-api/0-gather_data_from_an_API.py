@@ -17,12 +17,14 @@ if __name__ == "__main__":
     tasks = res_todos.json()
     listtask = []
     nbrtasks = 0
+    alltasks = 0
     for task in tasks:
         if task.get('completed') is True:
             listtask.append(task)
             nbrtasks += 1
+        alltasks += 1
 
     print("Employee {} is done with tasks({}/{}):"
-          .format(name, nbrtasks, int(len(tasks))))
+          .format(name, nbrtasks, alltasks))
     for task in listtask:
         print("\t {}".format(task.get("title")))
