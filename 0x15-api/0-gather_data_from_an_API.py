@@ -6,7 +6,7 @@ import sys
 
 if __name__ == "__main__":
     url = 'https://jsonplaceholder.typicode.com/'
-    userid = sys.argv[1]
+    userid = int(sys.argv[1])
     user = '{}users/{}'.format(url, userid)
     res = requests.get(user)
     json_res = res.json()
