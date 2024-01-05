@@ -5,25 +5,26 @@ import sys
 
 
 if __name__ == "__main__":
-    """copying this method from https://github.com/kiya3300 for test"""
-    userId = sys.argv[1]
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-                        .format(userId))
+    url = 'https://jsonplaceholder.typicode.com/'
+    userid = int(sys.argv[1])
+    user = '{}users/{}'.format(url, userid)
+    res = requests.get(user)
+    json_res = res.json()
+    name = str(json_res.get('name'))
 
-    name = user.json().get('name')
+    todos = '{}todos?userId={}'.format(url, userid)
+    res_todos = requests.get(todos)
+    tasks = res_todos.json()
+    listtask = []
+    nbrtasks = 0
+    alltasks = 0
+    for task in tasks:
+        if task.get('completed') is True:
+            listtask.append(task)
+            nbrtasks += 1
+        alltasks += 1
 
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    totalTasks = 0
-    completed = 0
-
-    for task in todos.json():
-        if task.get('userId') == int(userId):
-            totalTasks += 1
-            if task.get('completed'):
-                completed += 1
-
-    print('Employee {} is done with tasks({}/{}):'
-          .format(name, completed, totalTasks))
-
-    print('\n'.join(["\t " + task.get('title') for task in todos.json()
-          if task.get('userId') == int(userId) and task.get('completed')]))
+    print("Employee {} is done with tasks({}/{}):"
+          .format(name, nbrtasks, alltasks))
+    for task in listtask:
+        print("\t {}".format(task.get("title")))
