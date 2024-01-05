@@ -21,6 +21,6 @@ if __name__ == "__main__":
             listtask.append(task)
 
     print("Employee {} is done with tasks({}/{}):"
-          .format(name, len(listtask), len(tasks)))
+          .format(name, int(len(listtask)), int(len(tasks))))
     for task in listtask:
         print("\t {}".format(task.get("title")))
