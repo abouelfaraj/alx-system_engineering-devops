@@ -1,3 +1,5 @@
+# testing how well our web server setup featuring Nginx is doing under pressure.
+
 exec {'replace':
   provider => shell,
   command  => 'sudo sed -i "s/ULIMIT=\-n 15\"/ULIMIT=\"-n 4096\"/" /etc/default/nginx',
