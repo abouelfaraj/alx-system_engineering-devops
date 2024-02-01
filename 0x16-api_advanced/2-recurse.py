@@ -12,7 +12,7 @@ def append_title(h_list, h_posts):
     append_title(h_list, h_posts)
 
 
-def recurse(subreddit, hot_list=[]):
+def recurse(subreddit, hot_list=[], after=None):
     """Get count of subscribers"""
     config = configparser.ConfigParser()
     config.read('config.txt')
@@ -48,5 +48,4 @@ def recurse(subreddit, hot_list=[]):
             return hot_list
         return recurse(subreddit, hot_list=hot_list, after=after)
     else:
-        print(None)
-        return 0
+        return None
