@@ -3,6 +3,7 @@
 import configparser
 import requests
 
+
 def append_title(h_list, h_posts):
     """Append items to list """
     if len(h_posts) == 0:
